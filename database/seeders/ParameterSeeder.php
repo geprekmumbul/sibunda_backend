@@ -31,19 +31,19 @@ class ParameterSeeder extends Seeder {
         BabyMovementGrowthParam::query()->truncate();
         Immunization::query()->truncate();
 
-        $fetusGrowths = Reader::createFromPath(database_path('seeders/csv/fetus_growths.csv'), 'r');
+        $fetusGrowths = Reader::createFromPath(database_path('seeders/csv/pertumbuhan_janin.csv'), 'r');
         $fetusGrowths->setDelimiter(',');
         $fetusGrowths->setHeaderOffset(0);
         $weightGrowths = Reader::createFromPath(database_path('seeders/csv/weight_growths.csv'), 'r');
         $weightGrowths->setDelimiter(',');
         $weightGrowths->setHeaderOffset(0);
-        $tfuGrowths = Reader::createFromPath(database_path('seeders/csv/tfu_growths.csv'), 'r');
+        $tfuGrowths = Reader::createFromPath(database_path('seeders/csv/pertumbuhan_tinggi_fundus_uteri.csv'), 'r');
         $tfuGrowths->setDelimiter(',');
         $tfuGrowths->setHeaderOffset(0);
-        $djjGrowths = Reader::createFromPath(database_path('seeders/csv/djj_growths.csv'), 'r');
+        $djjGrowths = Reader::createFromPath(database_path('seeders/csv/pertumbuhan_detak_jantung_janin.csv'), 'r');
         $djjGrowths->setDelimiter(',');
         $djjGrowths->setHeaderOffset(0);
-        $momPulseGrowths = Reader::createFromPath(database_path('seeders/csv/mom_pulse_growths.csv'), 'r');
+        $momPulseGrowths = Reader::createFromPath(database_path('seeders/csv/pertumbuhan_detak_jantung_ibu.csv'), 'r');
         $momPulseGrowths->setDelimiter(',');
         $momPulseGrowths->setHeaderOffset(0);
 
