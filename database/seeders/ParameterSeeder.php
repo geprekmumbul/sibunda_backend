@@ -59,8 +59,8 @@ class ParameterSeeder extends Seeder {
                 'week' => $d['week'],
                 'length' => $this->nullableVal($d['length'], '-'),
                 'weight' => $this->nullableVal($d['weight'], '-'),
-                'desc' => $this->nullableVal($d['size'], '-'),
-                'img' => $this->nullableVal($d['icon'], '-')
+                'desc'   => $this->nullableVal($d['size'], '-'),
+                'img'    => $this->nullableVal($d['icon'], '-')
             ]);
         }
 
@@ -68,17 +68,17 @@ class ParameterSeeder extends Seeder {
             WeightGrowthParam::create([
                 'week' => $d['week'],
                 'bottom_obesity_threshold' => $d['bottom_obesity_threshold'],
-                'bottom_over_threshold' => $d['bottom_over_threshold'],
-                'bottom_normal_threshold' => $d['bottom_normal_threshold']
+                'bottom_over_threshold'    => $d['bottom_over_threshold'],
+                'bottom_normal_threshold'  => $d['bottom_normal_threshold']
             ]);
         }
 
         foreach ($tfuGrowths as $d) {
             TfuGrowthParam::create([
-                'week' => $d['week'],
+                'week'             => $d['week'],
                 'bottom_threshold' => $d['bottom_threshold'],
                 'normal_threshold' => $d['normal_threshold'],
-                'top_threshold' => $d['top_threshold']
+                'top_threshold'    => $d['top_threshold']
             ]);
         }
 

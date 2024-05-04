@@ -50,27 +50,27 @@ class UserSeeder extends Seeder
 
         $users = [
             [
-                'name' => 'Admin',
-                'email' => 'admin@a.a',
-                'password' => Hash::make('password'),
+                'name'          => 'Admin',
+                'email'         => 'admin@a.a',
+                'password'      => Hash::make('password'),
                 'user_group_id' => 1
             ],
             [
-                'name' => 'Bunda',
-                'email' => 'bunda@a.a',
-                'password' => Hash::make('password'),
+                'name'          => 'Bunda',
+                'email'         => 'bunda@a.a',
+                'password'      => Hash::make('password'),
                 'user_group_id' => 2
             ],
             [
-                'name' => 'Bidan',
-                'email' => 'bidan@a.a',
-                'password' => Hash::make('password'),
+                'name'          => 'Bidan',
+                'email'         => 'bidan@a.a',
+                'password'      => Hash::make('password'),
                 'user_group_id' => 3
             ],
             [
-                'name' => 'FasKes',
-                'email' => 'faskes@a.a',
-                'password' => Hash::make('password'),
+                'name'          => 'FasKes',
+                'email'         => 'faskes@a.a',
+                'password'      => Hash::make('password'),
                 'user_group_id' => 4
             ]
         ];
@@ -91,16 +91,16 @@ class UserSeeder extends Seeder
             foreach($userGroupRoles[$i - 1] as $ur) {
                 UserGroupRole::create([
                     'user_group_id' => $i,
-                    'user_role_id' => $ur
+                    'user_role_id'  => $ur
                 ]);
             }
         }
 
         foreach($users as $u) {
             $user = User::create([
-                'name' => $u['name'],
-                'email' => $u['email'],
-                'password' => $u['password'],
+                'name'          => $u['name'],
+                'email'         => $u['email'],
+                'password'      => $u['password'],
                 'user_group_id' => $u['user_group_id']
             ]);
 

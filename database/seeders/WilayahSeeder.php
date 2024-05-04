@@ -40,12 +40,12 @@ class WilayahSeeder extends Seeder
         foreach ($records as $record) {
             if ($foreignKey == null) {
                 $model::create([
-                    'id' => $record['id'],
+                    'id'   => $record['id'],
                     'nama' => $record['name']
                 ]);
             } else {
                 $model::create([
-                    'id' => $record['id'],
+                    'id'   => $record['id'],
                     'nama' => $record['name'],
                     $foreignKey => $record['foreign']
                 ]);

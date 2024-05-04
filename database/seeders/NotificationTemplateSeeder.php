@@ -35,10 +35,10 @@ class NotificationTemplateSeeder extends Seeder
 
         foreach($templates as $t) {
             NotificationTemplate::create([
-                'title' => $t[0],
-                'desc' => $t[1],
+                'title'   => $t[0],
+                'desc'    => $t[1],
                 'img_url' => $t[2],
-                'url' => 'https://www.google.com'
+                'url'     => 'https://www.google.com'
             ]);
         }
     }

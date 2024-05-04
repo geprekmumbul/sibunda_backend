@@ -26,8 +26,8 @@ class AnakParamPerkembanganSeeder extends Seeder
 
         foreach($data as $d) {
             AnakParamPerkembangan::create([
-                'is_laki' => $d['is_laki'],
-                'month' => $d['month'],
+                'is_laki'     => $d['is_laki'],
+                'month'       => $d['month'],
                 's_threshold' => $d['s_threshold'],
                 'm_threshold' => $d['m_threshold']
             ]);

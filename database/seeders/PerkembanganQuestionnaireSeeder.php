@@ -27,8 +27,8 @@ class PerkembanganQuestionnaireSeeder extends Seeder
 
         foreach($data as $d) {
             $newData = PerkembanganQuestionnaire::create([
-                'no' => $d['no'],
-                'question' => $d['question'],
+                'no'          => $d['no'],
+                'question'    => $d['question'],
                 'month_start' => $d['month_start'],
                 'month_until' => $d['month_until']
             ]);

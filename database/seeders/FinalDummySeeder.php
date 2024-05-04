@@ -271,8 +271,8 @@ class FinalDummySeeder extends Seeder
                     }
                     ServiceStatementMonthlyPerkembangan::create([
                         'monthly_report_id' => $newData->id,
-                        'questionnaire_id' => $q->id,
-                        'ans' => $yes
+                        'questionnaire_id'  => $q->id,
+                        'ans'               => $yes
                     ]);
                 }
 
@@ -301,16 +301,16 @@ class FinalDummySeeder extends Seeder
         $user = User::where('email', 'gita@gmail.com')->first();
 
         $covidForm = CovidForm::create([
-            'is_ibu' => $is_ibu,
-            'date' => Carbon::now(),
+            'is_ibu'  => $is_ibu,
+            'date'    => Carbon::now(),
             'user_id' => $user->id
         ]);
 
         foreach ($questions as $q) {
             CovidFormAns::create([
-                'q_id' => $q->id,
+                'q_id'    => $q->id,
                 'form_id' => $covidForm->id,
-                'ans' => rand(0, 1)
+                'ans'     => rand(0, 1)
             ]);
         }
 

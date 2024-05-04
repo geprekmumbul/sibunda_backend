@@ -22,18 +22,18 @@ class TipDanInfoSeeder extends Seeder
         $kesehatan_keluarga = [
             [
                 'img_url' => 'https://sibunda.amirmb.com/res/img/home/kesehatan_keluarga_1.png',
-                'desc' => 'Selamat Berat Badan Bunda Normal'
+                'desc'    => 'Selamat Berat Badan Bunda Normal'
             ],
             [
                 'img_url' => 'https://sibunda.amirmb.com/res/img/home/kesehatan_keluarga_2.png',
-                'desc' => 'Gerakan Anak Bunda Kurang Nih Bun!'
+                'desc'    => 'Gerakan Anak Bunda Kurang Nih Bun!'
             ],
         ];
         $tips_dan_info = [
             [
                 'img_url' => 'https://sibunda.amirmb.com/res/img/home/tips_1.png',
-                'desc' => 'Nih Bun 5 Makanan Rekomendasi untuk Bunda Hamil Trimester 2',
-                'date' => Carbon::now(),
+                'desc'    => 'Nih Bun 5 Makanan Rekomendasi untuk Bunda Hamil Trimester 2',
+                'date'    => Carbon::now(),
                 'content' => 'Setiap trimester dalam kehamilan adalah fase yang penting bagi tumbuh kembang calon buah hati. Memasuki trimester kedua, ibu hamil akan merasa lebih nyaman dibanding trimester sebelumnya, karena rasa mual akibat morning sickness sudah berkurang. Oleh karena itu, saatnya bagi ibu hamil untuk memaksimalkan konsumsi makanan yang disarankan.
                               Ada banyak pilihan makanan untuk tumbuh kembang janin yang bisa dikonsumsi ibu hamil trimester kedua. Ibu hamil disarankan untuk mengonsumsi makanan yang kaya nutrisi, seperti zat besi, folat, protein, kalsium, magnesium, dan vitamin D.
                                 Dengan mencukupi berbagai nutrisi tersebut, ibu hamil dapat menurunkan risiko berbagai masalah pada kehamilan, seperti preeklampsia dan risiko kelahiran prematur',
@@ -41,8 +41,8 @@ class TipDanInfoSeeder extends Seeder
             ],
             [
                 'img_url' => 'https://sibunda.amirmb.com/res/img/home/tips_2.png',
-                'desc' => 'Perkembangan Janin Usia 9 Minggu Kehamilan, Yuk Bun Ketahui Selengkapnya!',
-                'date' => Carbon::now(),
+                'desc'    => 'Perkembangan Janin Usia 9 Minggu Kehamilan, Yuk Bun Ketahui Selengkapnya!',
+                'date'    => Carbon::now(),
                 'content' => 'Setiap trimester dalam kehamilan adalah fase yang penting bagi tumbuh kembang calon buah hati. Memasuki trimester kedua, ibu hamil akan merasa lebih nyaman dibanding trimester sebelumnya, karena rasa mual akibat morning sickness sudah berkurang. Oleh karena itu, saatnya bagi ibu hamil untuk memaksimalkan konsumsi makanan yang disarankan.
                               Ada banyak pilihan makanan untuk tumbuh kembang janin yang bisa dikonsumsi ibu hamil trimester kedua. Ibu hamil disarankan untuk mengonsumsi makanan yang kaya nutrisi, seperti zat besi, folat, protein, kalsium, magnesium, dan vitamin D.
                                 Dengan mencukupi berbagai nutrisi tersebut, ibu hamil dapat menurunkan risiko berbagai masalah pada kehamilan, seperti preeklampsia dan risiko kelahiran prematur',
@@ -50,8 +50,8 @@ class TipDanInfoSeeder extends Seeder
             ],
             [
                 'img_url' => 'https://sibunda.amirmb.com/res/img/home/tips_3.png',
-                'desc' => 'Yuk Bun Ketahui Pola Asuh Bayi Baru Lahir Sampai Usia 1,5 Tahun',
-                'date' => Carbon::now(),
+                'desc'    => 'Yuk Bun Ketahui Pola Asuh Bayi Baru Lahir Sampai Usia 1,5 Tahun',
+                'date'    => Carbon::now(),
                 'content' => 'Setiap trimester dalam kehamilan adalah fase yang penting bagi tumbuh kembang calon buah hati. Memasuki trimester kedua, ibu hamil akan merasa lebih nyaman dibanding trimester sebelumnya, karena rasa mual akibat morning sickness sudah berkurang. Oleh karena itu, saatnya bagi ibu hamil untuk memaksimalkan konsumsi makanan yang disarankan.
                               Ada banyak pilihan makanan untuk tumbuh kembang janin yang bisa dikonsumsi ibu hamil trimester kedua. Ibu hamil disarankan untuk mengonsumsi makanan yang kaya nutrisi, seperti zat besi, folat, protein, kalsium, magnesium, dan vitamin D.
                                 Dengan mencukupi berbagai nutrisi tersebut, ibu hamil dapat menurunkan risiko berbagai masalah pada kehamilan, seperti preeklampsia dan risiko kelahiran prematur',
@@ -59,8 +59,8 @@ class TipDanInfoSeeder extends Seeder
             ],
             [
                 'img_url' => 'https://sibunda.amirmb.com/res/img/home/tips_4.png',
-                'desc' => 'Bagaimana Cara Memberikan ASI ke Bayi Baru Lahir 0-28 Hari (Neonatus)?',
-                'date' => Carbon::now(),
+                'desc'    => 'Bagaimana Cara Memberikan ASI ke Bayi Baru Lahir 0-28 Hari (Neonatus)?',
+                'date'    => Carbon::now(),
                 'content' => 'Setiap trimester dalam kehamilan adalah fase yang penting bagi tumbuh kembang calon buah hati. Memasuki trimester kedua, ibu hamil akan merasa lebih nyaman dibanding trimester sebelumnya, karena rasa mual akibat morning sickness sudah berkurang. Oleh karena itu, saatnya bagi ibu hamil untuk memaksimalkan konsumsi makanan yang disarankan.
                               Ada banyak pilihan makanan untuk tumbuh kembang janin yang bisa dikonsumsi ibu hamil trimester kedua. Ibu hamil disarankan untuk mengonsumsi makanan yang kaya nutrisi, seperti zat besi, folat, protein, kalsium, magnesium, dan vitamin D.
                                 Dengan mencukupi berbagai nutrisi tersebut, ibu hamil dapat menurunkan risiko berbagai masalah pada kehamilan, seperti preeklampsia dan risiko kelahiran prematur',
