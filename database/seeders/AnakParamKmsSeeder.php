@@ -26,15 +26,15 @@ class AnakParamKmsSeeder extends Seeder
 
         foreach($data as $d) {
             AnakParamKms::create([
-                'is_laki' => $d['is_laki'],
-                'month' => $d['month'],
+                'is_laki'    => $d['is_laki'],
+                'month'      => $d['month'],
                 'minus_3_sd' => $d['minus_3_sd'],
                 'minus_2_sd' => $d['minus_2_sd'],
                 'minus_1_sd' => $d['minus_1_sd'],
-                'median' => $d['median'],
-                'plus_1_sd' => $d['plus_1_sd'],
-                'plus_2_sd' => $d['plus_2_sd'],
-                'plus_3_sd' => $d['plus_3_sd']
+                'median'     => $d['median'],
+                'plus_1_sd'  => $d['plus_1_sd'],
+                'plus_2_sd'  => $d['plus_2_sd'],
+                'plus_3_sd'  => $d['plus_3_sd']
             ]);
         }
     }
