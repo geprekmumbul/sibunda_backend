@@ -25,10 +25,10 @@ class WilayahSeeder extends Seeder
         Kecamatan::query()->truncate();
         Kelurahan::query()->truncate();
 
-        $this->importDataFromCsv(Provinsi::class, $basePath.'provinces.csv');
-        $this->importDataFromCsv(Kota::class, $basePath.'regencies.csv', 'provinsi_id');
-        $this->importDataFromCsv(Kecamatan::class, $basePath.'districts.csv', 'kota_id');
-        $this->importDataFromCsv(Kelurahan::class, $basePath.'villages.csv', 'kecamatan_id');
+        $this->importDataFromCsv(Provinsi::class, $basePath.'daerah_provinsi.csv');
+        $this->importDataFromCsv(Kota::class, $basePath.'daerah_kotakab.csv', 'provinsi_id');
+        $this->importDataFromCsv(Kecamatan::class, $basePath.'daerah_kecamatan.csv', 'kota_id');
+        $this->importDataFromCsv(Kelurahan::class, $basePath.'daerah_desa.csv', 'kecamatan_id');
 
     }
 
