@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateCovidQuestionnaireTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('covid_questionnaire', function (Blueprint $table) {
@@ -19,12 +14,6 @@ class CreateCovidQuestionnaireTable extends Migration
             $table->timestamps();
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('covid_questionnaire');

@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateServiceStatementBayiTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('service_statement_bayi', function (Blueprint $table) {
@@ -29,12 +24,6 @@ class CreateServiceStatementBayiTable extends Migration
             $table->foreign('kia_anak_id')->references('id')->on('kia_identitas_anak');
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('service_statement_bayi');

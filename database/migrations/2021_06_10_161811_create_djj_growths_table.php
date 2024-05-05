@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateDjjGrowthsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('djj_growths', function (Blueprint $table) {
@@ -20,12 +15,6 @@ class CreateDjjGrowthsTable extends Migration
             $table->timestamps();
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('djj_growths');

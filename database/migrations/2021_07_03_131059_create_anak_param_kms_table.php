@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateAnakParamKmsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('anak_param_kms', function (Blueprint $table) {
@@ -27,12 +22,6 @@ class CreateAnakParamKmsTable extends Migration
             $table->timestamps();
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('anak_param_kms');

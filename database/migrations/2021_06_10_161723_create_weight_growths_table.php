@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateWeightGrowthsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('weight_growths', function (Blueprint $table) {
@@ -21,12 +16,6 @@ class CreateWeightGrowthsTable extends Migration
             $table->timestamps();
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('weight_growths');

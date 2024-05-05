@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreatNotificationTemplateTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         //
@@ -23,12 +18,6 @@ class CreatNotificationTemplateTable extends Migration
             $table->timestamps();
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         //

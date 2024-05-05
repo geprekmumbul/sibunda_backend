@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateAnakParamLingkarKepalaTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('anak_param_lingkar_kepala', function (Blueprint $table) {
@@ -27,12 +22,6 @@ class CreateAnakParamLingkarKepalaTable extends Migration
             $table->timestamps();
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('anak_param_lingkar_kepala');

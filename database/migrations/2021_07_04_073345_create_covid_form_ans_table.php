@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateCovidFormAnsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('covid_form_ans', function (Blueprint $table) {
@@ -23,12 +18,6 @@ class CreateCovidFormAnsTable extends Migration
             $table->foreign('form_id')->references('id')->on('covid_form');
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('covid_form_ans');

@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateKecamatanTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('kecamatan', function (Blueprint $table) {
@@ -20,12 +15,6 @@ class CreateKecamatanTable extends Migration
             $table->foreign('kota_id')->references('id')->on('kota');
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('kecamatan');

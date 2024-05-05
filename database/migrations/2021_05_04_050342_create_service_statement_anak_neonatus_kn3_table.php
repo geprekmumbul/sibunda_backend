@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateServiceStatementAnakNeonatusKn3Table extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('service_statement_anak_neonatus_kn3', function (Blueprint $table) {
@@ -34,12 +29,6 @@ class CreateServiceStatementAnakNeonatusKn3Table extends Migration
             $table->foreign('monthly_checkup_id')->references('id')->on('service_statement_anak_monthly_checkup');
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('service_statement_anak_neonatus_kn3');

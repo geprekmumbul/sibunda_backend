@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateKiaIdentitasIbuTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('kia_identitas_ibu', function (Blueprint $table) {
@@ -37,12 +32,6 @@ class CreateKiaIdentitasIbuTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('kia_identitas_ibu');

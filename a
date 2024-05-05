@@ -1,0 +1,35 @@
+[33mcommit 9db0e34d75eead568d2abd9dc3345519f877c0c6[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: geprekmumbul <geprekmumbul@gmail.com>
+Date:   Sun May 5 01:05:59 2024 +0700
+
+    Rename database/seeders/csv/pertumbuhan*.csv
+
+[33mcommit df92315da2e052208082dd0b9732bbdc5f848800[m
+Author: geprekmumbul <geprekmumbul@gmail.com>
+Date:   Sun May 5 00:49:55 2024 +0700
+
+    Rename database/seeders/csv/daerah*.php
+
+[33mcommit b64f817d932483977ee8328e344268493dc34dfa[m
+Author: geprekmumbul <geprekmumbul@gmail.com>
+Date:   Sun May 5 00:44:24 2024 +0700
+
+    Refactor database/seeders/*.php
+
+[33mcommit fc78a0e971eabb75ebd8b8aecded3ec7336dee6e[m
+Author: geprekmumbul <geprekmumbul@gmail.com>
+Date:   Sun May 5 00:32:50 2024 +0700
+
+    Refactor database/seeders/AnakParam*.php
+
+[33mcommit f18d1f69126af7bd1e05d9f42d19183489123ce0[m
+Author: geprekmumbul <geprekmumbul@gmail.com>
+Date:   Sun May 5 00:28:23 2024 +0700
+
+    Refactor routes/api.php
+
+[33mcommit e56b7b676090749220c49170c649d2f139c349b6[m
+Author: geprekmumbul <geprekmumbul@gmail.com>
+Date:   Sat May 4 22:49:54 2024 +0700
+
+    Clone dari github.com/hisproject/sibunda_backend

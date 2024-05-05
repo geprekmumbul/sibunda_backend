@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreatePerkembanganQuestionnaireTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('perkembangan_questionnaire', function (Blueprint $table) {
@@ -23,12 +18,6 @@ class CreatePerkembanganQuestionnaireTable extends Migration
             $table->timestamps();
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('perkembangan_questionnaire');

@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateServiceStatementIbuHamilPeriksaTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('service_statement_ibu_hamil_periksa', function (Blueprint $table) {
@@ -44,12 +39,6 @@ class CreateServiceStatementIbuHamilPeriksaTable extends Migration
             $table->foreign('trisemester_id')->references('id')->on('service_statement_ibu_hamil');
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('service_statement_ibu_hamil_periksa');

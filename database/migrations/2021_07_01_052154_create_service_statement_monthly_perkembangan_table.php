@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateServiceStatementMonthlyPerkembanganTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('service_statement_monthly_perkembangan', function (Blueprint $table) {
@@ -24,12 +19,6 @@ class CreateServiceStatementMonthlyPerkembanganTable extends Migration
             $table->foreign('questionnaire_id')->references('id')->on('perkembangan_questionnaire');
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('service_statement_monthly_perkembangan');

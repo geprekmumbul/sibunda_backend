@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateServiceStatementAnakYearsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('service_statement_anak_years', function (Blueprint $table) {
@@ -23,12 +18,6 @@ class CreateServiceStatementAnakYearsTable extends Migration
             $table->foreign('kia_anak_id')->references('id')->on('kia_identitas_anak');
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('service_statement_anak_years');

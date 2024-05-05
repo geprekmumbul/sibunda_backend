@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateKelurahanTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('kelurahan', function (Blueprint $table) {
@@ -20,12 +15,6 @@ class CreateKelurahanTable extends Migration
             $table->foreign('kecamatan_id')->references('id')->on('kecamatan');
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('kelurahan');

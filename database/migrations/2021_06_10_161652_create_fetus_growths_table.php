@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateFetusGrowthsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('fetus_growths', function (Blueprint $table) {
@@ -22,12 +17,6 @@ class CreateFetusGrowthsTable extends Migration
             $table->timestamps();
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('fetus_growths');

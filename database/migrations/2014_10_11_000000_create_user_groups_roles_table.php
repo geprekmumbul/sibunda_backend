@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateUserGroupsRolesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('user_groups_roles', function (Blueprint $table) {
@@ -22,13 +17,6 @@ class CreateUserGroupsRolesTable extends Migration
             $table->foreign('user_role_id')->references('id')->on('user_roles');
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('user_groups_roles');

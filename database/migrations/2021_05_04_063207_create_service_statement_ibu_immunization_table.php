@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateServiceStatementIbuImmunizationTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('service_statement_ibu_immunization', function (Blueprint $table) {
@@ -26,12 +21,6 @@ class CreateServiceStatementIbuImmunizationTable extends Migration
             $table->foreign('immunization_id')->references('id')->on('immunization');
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('service_statement_ibu_immunization');

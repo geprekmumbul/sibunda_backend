@@ -6,15 +6,11 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateTipsDanInfoTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('tips_dan_info', function (Blueprint $table) {
-            $table->id();$table->text('img_url')->nullable();
+            $table->id();
+            $table->text('img_url')->nullable();
             $table->string('desc');
             $table->date('date');
             $table->longText('content');
@@ -25,12 +21,6 @@ class CreateTipsDanInfoTable extends Migration
             $table->foreign('tips_category_id')->references('id')->on('tips_category');
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('tips_dan_info');

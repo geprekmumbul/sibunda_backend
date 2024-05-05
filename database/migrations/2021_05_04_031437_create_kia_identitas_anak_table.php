@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateKiaIdentitasAnakTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         // data anak / bayi
@@ -40,12 +35,6 @@ class CreateKiaIdentitasAnakTable extends Migration
             $table->foreign('kia_ibu_id')->references('id')->on('kia_identitas_ibu');
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('kia_identitas_anak');

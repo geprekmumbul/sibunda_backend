@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateServiceStatementAnakMonthlyCheckupTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         //
@@ -31,12 +26,6 @@ class CreateServiceStatementAnakMonthlyCheckupTable extends Migration
             $table->foreign('year_id')->references('id')->on('service_statement_anak_years');
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         //
