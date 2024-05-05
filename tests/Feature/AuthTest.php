@@ -7,12 +7,6 @@ use Tests\TestCase;
 
 class AuthTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-
     public function testLogin() {
         $this->json('POST', 'api/auth/login', [
             'client_id' => 2,

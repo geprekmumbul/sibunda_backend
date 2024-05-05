@@ -9,11 +9,6 @@ use Tests\TestCase;
 
 class CovidTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
     public function test_example()
     {
         $response = $this->get('/');
