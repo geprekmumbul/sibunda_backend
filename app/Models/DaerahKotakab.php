@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Kota extends Model
+class DaerahKotakab extends Model
 {
     //
     protected $table = 'kota';
@@ -12,6 +12,6 @@ class Kota extends Model
     public $timestamps = false;
 
     public function provinsi() {
-        return $this->belongsTo(Provinsi::class, 'provinsi_id');
+        return $this->belongsTo(DaerahProvinsi::class, 'provinsi_id');
     }
 }

@@ -1,10 +1,10 @@
 <?php
 namespace Database\Seeders;
 
-use App\Models\Kecamatan;
-use App\Models\Kelurahan;
-use App\Models\Kota;
-use App\Models\Provinsi;
+use App\Models\DaerahKecamatan;
+use App\Models\DaerahDesakel;
+use App\Models\DaerahKotakab;
+use App\Models\DaerahProvinsi;
 use Illuminate\Database\Seeder;
 use League\Csv\Reader;
 
@@ -20,15 +20,15 @@ class WilayahSeeder extends Seeder
         //
             $basePath = 'seeders/csv/';
 
-        Provinsi::query()->truncate();
-        Kota::query()->truncate();
-        Kecamatan::query()->truncate();
-        Kelurahan::query()->truncate();
+        DaerahProvinsi::query()->truncate();
+        DaerahKotakab::query()->truncate();
+        DaerahKecamatan::query()->truncate();
+        DaerahDesakel::query()->truncate();
 
-        $this->importDataFromCsv(Provinsi::class, $basePath.'daerah_provinsi.csv');
-        $this->importDataFromCsv(Kota::class, $basePath.'daerah_kotakab.csv', 'provinsi_id');
-        $this->importDataFromCsv(Kecamatan::class, $basePath.'daerah_kecamatan.csv', 'kota_id');
-        $this->importDataFromCsv(Kelurahan::class, $basePath.'daerah_desa.csv', 'kecamatan_id');
+        $this->importDataFromCsv(DaerahProvinsi::class, $basePath.'daerah_provinsi.csv');
+        $this->importDataFromCsv(DaerahKotakab::class, $basePath.'daerah_kotakab.csv', 'provinsi_id');
+        $this->importDataFromCsv(DaerahKecamatan::class, $basePath.'daerah_kecamatan.csv', 'kota_id');
+        $this->importDataFromCsv(DaerahDesakel::class, $basePath.'daerah_desa.csv', 'kecamatan_id');
 
     }
 

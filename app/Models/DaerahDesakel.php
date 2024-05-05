@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Kelurahan extends Model
+class DaerahDesakel extends Model
 {
     //
     protected $table = 'kelurahan';
@@ -12,6 +12,6 @@ class Kelurahan extends Model
     public $timestamps = false;
 
     public function kecamatan() {
-        return $this->belongsTo(Kecamatan::class, 'kecamatan_id');
+        return $this->belongsTo(DaerahKecamatan::class, 'kecamatan_id');
     }
 }
