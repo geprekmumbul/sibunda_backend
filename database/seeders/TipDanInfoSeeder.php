@@ -10,14 +10,8 @@ use Illuminate\Database\Seeder;
 
 class TipDanInfoSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
-        //
         $tips_categories = ['Kehamilan'];
         $kesehatan_keluarga = [
             [

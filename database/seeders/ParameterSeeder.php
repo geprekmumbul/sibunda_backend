@@ -16,13 +16,7 @@ use League\Csv\Reader;
 class ParameterSeeder extends Seeder {
     use Util;
 
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run() {
-        //
         FetusGrowthParam::query()->truncate();
         WeightGrowthParam::query()->truncate();
         TfuGrowthParam::query()->truncate();
@@ -46,7 +40,6 @@ class ParameterSeeder extends Seeder {
         $momPulseGrowths = Reader::createFromPath(database_path('seeders/csv/pertumbuhan_detak_jantung_ibu.csv'), 'r');
         $momPulseGrowths->setDelimiter(',');
         $momPulseGrowths->setHeaderOffset(0);
-
 
         // insert data
         foreach ($fetusGrowths as $d) {

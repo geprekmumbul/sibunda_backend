@@ -9,14 +9,8 @@ use League\Csv\Reader;
 
 class AnakParamBbUsiaSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
-        //
         AnakParamBbUsia::query()->truncate();
         DB::statement('ALTER SEQUENCE anak_param_bb_usia_id_seq RESTART 1');
 

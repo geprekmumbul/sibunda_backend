@@ -9,14 +9,8 @@ use League\Csv\Reader;
 
 class PerkembanganQuestionnaireSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
-        //
         $data = Reader::createFromPath(database_path('seeders/csv/perkembangan_questionnaire.csv'), 'r');
         $data->setDelimiter(',');
         $data->setHeaderOffset(0);

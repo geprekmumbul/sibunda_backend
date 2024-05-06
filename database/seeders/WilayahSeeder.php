@@ -10,15 +10,9 @@ use League\Csv\Reader;
 
 class WilayahSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     * by Amir Mu'tashim Billah
-     * @return void
-     */
     public function run()
     {
-        //
-            $basePath = 'seeders/csv/';
+        $basePath = 'seeders/csv/';
 
         DaerahProvinsi::query()->truncate();
         DaerahKotakab::query()->truncate();
@@ -29,7 +23,6 @@ class WilayahSeeder extends Seeder
         $this->importDataFromCsv(DaerahKotakab::class, $basePath.'daerah_kotakab.csv', 'provinsi_id');
         $this->importDataFromCsv(DaerahKecamatan::class, $basePath.'daerah_kecamatan.csv', 'kota_id');
         $this->importDataFromCsv(DaerahDesakel::class, $basePath.'daerah_desa.csv', 'kecamatan_id');
-
     }
 
     private function importDataFromCsv($model, $fileName, $foreignKey = null) {

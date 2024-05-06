@@ -15,14 +15,8 @@ use Illuminate\Support\Facades\Hash;
 
 class DummyUserTokenSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
-        //
         DB::beginTransaction();
         try {
             $user = User::create([

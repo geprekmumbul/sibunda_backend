@@ -7,14 +7,8 @@ use Illuminate\Database\Seeder;
 
 class NotificationTemplateSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
-        //
         $templates = [
             [
                 'Selamat Datang di SiBunda!',

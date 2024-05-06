@@ -11,14 +11,8 @@ use Illuminate\Support\Facades\DB;
 
 class NotificationSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
-        //
         Notification::query()->truncate();
         DB::statement('ALTER SEQUENCE notifications_id_seq RESTART 1');
 

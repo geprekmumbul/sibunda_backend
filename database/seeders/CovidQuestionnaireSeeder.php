@@ -8,14 +8,8 @@ use Illuminate\Support\Facades\DB;
 
 class CovidQuestionnaireSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
-        //
         CovidQuestionnaire::query()->truncate();
         DB::statement('ALTER SEQUENCE covid_questionnaire_id_seq RESTART 1');
         $questions = [

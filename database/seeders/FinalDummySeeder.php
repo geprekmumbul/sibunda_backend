@@ -27,14 +27,9 @@ class FinalDummySeeder extends Seeder
 {
     use GlobalDataHelper;
     use Util;
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+
     public function run()
     {
-        //
         $exists = User::where('email', 'gita@gmail.com')->first();
         if(!empty($exists))
             $this->truncateUserData($exists->id);

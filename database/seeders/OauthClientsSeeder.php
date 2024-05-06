@@ -6,14 +6,8 @@ use Illuminate\Support\Facades\DB;
 
 class OauthClientsSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
-        //
         $clients = [
             [
                 'SiBunda Personal Access Client',
