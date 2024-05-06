@@ -25,7 +25,7 @@ class CreateServiceStatementAnakNeonatusSixHoursTable extends Migration
             $table->string('catatan_penting');
             $table->unsignedBigInteger('monthly_checkup_id')->unique();
             $table->timestamps();
-            $table->foreign('monthly_checkup_id')->references('id')->on('service_statement_anak_monthly_checkup');
+            $table->foreign('monthly_checkup_id', 'service_statement_anak_neonatus_six_hours_monthly')->references('id')->on('service_statement_anak_monthly_checkup');
         });
     }
     public function down()
