@@ -18,10 +18,10 @@ class UserSeeder extends Seeder
         UserRole::query()->truncate();
         UserGroup::query()->truncate();
 
-        DB::statement('ALTER SEQUENCE users_id_seq RESTART 1');
-        DB::statement('ALTER SEQUENCE user_groups_roles_id_seq RESTART 1');
-        DB::statement('ALTER SEQUENCE user_groups_id_seq RESTART 1');
-        DB::statement('ALTER SEQUENCE user_roles_id_seq RESTART 1');
+        DB::statement('ALTER TABLE users AUTO_INCREMENT=1');
+        DB::statement('ALTER TABLE user_groups_roles AUTO_INCREMENT=1');
+        DB::statement('ALTER TABLE user_groups AUTO_INCREMENT=1');
+        DB::statement('ALTER TABLE user_roles AUTO_INCREMENT=1');
 
         $userGroups = [
             'Admin',
