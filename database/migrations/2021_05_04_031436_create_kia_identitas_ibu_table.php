@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\DaerahKotakab;
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -17,7 +19,7 @@ class CreateKiaIdentitasIbuTable extends Migration
             $table->string('faskes_tk1')->nullable();
             $table->string('faskes_rujukan')->nullable();
             $table->enum('gol_darah', ['A', 'B', 'AB', 'O'])->nullable();
-            $table->unsignedBigInteger('tempat_lahir')->nullable();
+            $table->foreignIdFor(DaerahKotakab::class, 'tempat_lahir')->nullable()->constrained();
             $table->date('tanggal_lahir')->nullable();
             $table->string('pendidikan')->nullable();
             $table->string('pekerjaan')->nullable();
@@ -26,10 +28,8 @@ class CreateKiaIdentitasIbuTable extends Migration
             $table->string('puskesmas_domisili')->nullable();
             $table->string('nomor_register_kohort_ibu')->nullable();
             $table->text('img_url')->nullable();
-            $table->unsignedBigInteger('user_id');
+            $table->foreignIdFor(User::class,'user_id')->constrained();
             $table->timestamps();
-            $table->foreign('tempat_lahir')->references('id')->on('kota');
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
     public function down()

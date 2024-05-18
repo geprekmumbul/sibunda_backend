@@ -9,7 +9,7 @@ class CreateDjjGrowthsTable extends Migration
     public function up()
     {
         Schema::create('djj_growths', function (Blueprint $table) {
-            $table->smallInteger('week')->primary();
+            $table->id('week');
             $table->double('bottom_threshold');
             $table->double('top_threshold');
             $table->timestamps();

@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Immunization;
+use App\Models\KiaIdentitasIbu;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -10,15 +12,13 @@ class CreateServiceStatementIbuImmunizationTable extends Migration
     {
         Schema::create('service_statement_ibu_immunization', function (Blueprint $table) {
             $table->id();
-            $table->unsignedSmallInteger('immunization_id');
+            $table->foreignIdFor(Immunization::class, 'immunization_id')->constrained();
             $table->date('date')->nullable();
             $table->string('location')->nullable();
             $table->string('pic')->nullable(); // dokter/bidang/perawat
-            $table->unsignedBigInteger('kia_ibu_id');
+            $table->foreignIdFor(KiaIdentitasIbu::class, 'kia_ibu_id')->constrained();
             $table->smallInteger('trisemester');
             $table->timestamps();
-            $table->foreign('kia_ibu_id')->references('id')->on('kia_identitas_ibu');
-            $table->foreign('immunization_id')->references('id')->on('immunization');
         });
     }
     public function down()

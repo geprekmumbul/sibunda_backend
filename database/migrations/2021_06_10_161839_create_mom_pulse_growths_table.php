@@ -9,7 +9,7 @@ class CreateMomPulseGrowthsTable extends Migration
     public function up()
     {
         Schema::create('mom_pulse_growths', function (Blueprint $table) {
-            $table->smallInteger('week')->primary();
+            $table->id('week');
             $table->double('top_threshold');
             $table->timestamps();
         });

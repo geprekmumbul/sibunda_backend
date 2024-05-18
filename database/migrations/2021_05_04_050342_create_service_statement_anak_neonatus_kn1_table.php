@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\ServiceStatementAnakMonthlyCheckup;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -26,9 +27,8 @@ class CreateServiceStatementAnakNeonatusKn1Table extends Migration
             $table->string('dirujuk_ke');
             $table->string('petugas');
             $table->string('catatan_penting');
-            $table->unsignedBigInteger('monthly_checkup_id')->unique();
+            $table->foreignIdFor(ServiceStatementAnakMonthlyCheckup::class, 'monthly_checkup_id')->unique()->constrained();
             $table->timestamps();
-            $table->foreign('monthly_checkup_id')->references('id')->on('service_statement_anak_monthly_checkup');
         });
     }
     public function down()

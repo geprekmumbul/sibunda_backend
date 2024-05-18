@@ -9,7 +9,7 @@ class CreateProvinsiTable extends Migration
     public function up()
     {
         Schema::create('provinsi', function (Blueprint $table) {
-            $table->unsignedBigInteger('id')->primary();
+            $table->id();
             $table->char('nama', 50);
         });
     }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\DaerahProvinsi;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -9,10 +10,9 @@ class CreateKotaTable extends Migration
     public function up()
     {
         Schema::create('kota', function (Blueprint $table) {
-            $table->unsignedBigInteger('id')->primary();
+            $table->id();
             $table->char('nama', 50);
-            $table->unsignedBigInteger('provinsi_id');
-            $table->foreign('provinsi_id')->references('id')->on('provinsi');
+            $table->foreignIdFor(DaerahProvinsi::class, 'provinsi_id')->constrained();
         });
     }
     public function down()

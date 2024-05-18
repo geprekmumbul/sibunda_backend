@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\ServiceStatementIbuHamil;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -33,10 +34,9 @@ class CreateServiceStatementIbuHamilPeriksaTable extends Migration
             $table->string('riwayat_penyakit')->nullable();
             $table->text('catatan_khusus')->nullable();
             $table->text('img_usg')->nullable();
-            $table->unsignedBigInteger('trisemester_id');
+            $table->foreignIdFor(ServiceStatementIbuHamil::class, 'trisemester_id')->constrained();
             $table->unique(['trisemester_id', 'week']);
             $table->timestamps();
-            $table->foreign('trisemester_id')->references('id')->on('service_statement_ibu_hamil');
         });
     }
     public function down()

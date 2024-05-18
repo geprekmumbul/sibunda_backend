@@ -9,7 +9,7 @@ class CreateTfuGrowthsTable extends Migration
     public function up()
     {
         Schema::create('tfu_growths', function (Blueprint $table) {
-            $table->smallInteger('week')->primary();
+            $table->id('week');
             $table->double('bottom_threshold');
             $table->double('normal_threshold');
             $table->double('top_threshold');

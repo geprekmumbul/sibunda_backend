@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,9 +13,8 @@ class CreateFamilyHealthTipsTable extends Migration
             $table->id();
             $table->text('img_url')->nullable();
             $table->string('desc');
-            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreignIdFor(User::class, 'user_id')->nullable()->constrained();
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
     public function down()

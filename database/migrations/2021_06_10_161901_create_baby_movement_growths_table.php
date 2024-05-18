@@ -9,7 +9,7 @@ class CreateBabyMovementGrowthsTable extends Migration
     public function up()
     {
         Schema::create('baby_movement_growths', function (Blueprint $table) {
-            $table->smallInteger('week')->primary();
+            $table->id('week');
             $table->double('top_threshold');
             $table->double('bottom_threshold');
             $table->timestamps();

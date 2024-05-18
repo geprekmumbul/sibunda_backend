@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\ServiceStatementAnakYear;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -11,7 +12,7 @@ class CreateServiceStatementAnakMonthlyCheckupTable extends Migration
         //
         Schema::create('service_statement_anak_monthly_checkup', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('year_id');
+            $table->foreignIdFor(ServiceStatementAnakYear::class, 'year_id')->constrained();
             $table->unsignedSmallInteger('month');
             $table->date('date');
             $table->string('location');
@@ -23,7 +24,6 @@ class CreateServiceStatementAnakMonthlyCheckupTable extends Migration
             $table->double('imt');
             $table->unique(['year_id', 'month']);
             $table->timestamps();
-            $table->foreign('year_id')->references('id')->on('service_statement_anak_years');
         });
     }
     public function down()

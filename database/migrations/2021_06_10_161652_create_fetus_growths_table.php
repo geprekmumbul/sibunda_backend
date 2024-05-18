@@ -9,7 +9,7 @@ class CreateFetusGrowthsTable extends Migration
     public function up()
     {
         Schema::create('fetus_growths', function (Blueprint $table) {
-            $table->smallInteger('week')->primary();
+            $table->id('week');
             $table->double('length')->nullable();
             $table->double('weight')->nullable();
             $table->string('desc')->nullable();

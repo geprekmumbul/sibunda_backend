@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\KiaIdentitasAnak;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,9 +13,8 @@ class CreateServiceStatementIbuHamilTable extends Migration
             $table->id();
             $table->text('img_url')->nullable();
             $table->unsignedSmallInteger('trisemester');
-            $table->unsignedBigInteger('kia_anak_id');
+            $table->foreignIdFor(KiaIdentitasAnak::class, 'kia_anak_id')->constrained();
             $table->timestamps();
-            $table->foreign('kia_anak_id')->references('id')->on('kia_identitas_anak');
         });
     }
     public function down()

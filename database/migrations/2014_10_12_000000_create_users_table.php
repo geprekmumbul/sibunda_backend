@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\UserGroup;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -17,10 +18,10 @@ class CreateUsersTable extends Migration
             $table->string('img')->nullable();
             $table->string('fcm_token')->nullable();
             $table->longText('access_token')->nullable();
-            $table->unsignedInteger('user_group_id');
+            $table->foreignId('user_group_id');
             $table->rememberToken();
             $table->timestamps();
-            $table->foreign('user_group_id')->references('id')->on('user_groups');
+            $table->foreignIdFor(UserGroup::class, 'user_group_id')->constrained();
         });
     }
     public function down()

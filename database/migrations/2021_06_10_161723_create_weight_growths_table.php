@@ -9,7 +9,7 @@ class CreateWeightGrowthsTable extends Migration
     public function up()
     {
         Schema::create('weight_growths', function (Blueprint $table) {
-            $table->smallInteger('week')->primary();
+            $table->id('week');
             $table->double('bottom_obesity_threshold');
             $table->double('bottom_over_threshold');
             $table->double('bottom_normal_threshold');

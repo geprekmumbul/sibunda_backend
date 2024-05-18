@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\DaerahKotakab;
+use App\Models\KiaIdentitasIbu;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -18,16 +20,14 @@ class CreateKiaIdentitasAyahTable extends Migration
             $table->string('faskes_tk1')->nullable();
             $table->string('faskes_rujukan')->nullable();
             $table->enum('gol_darah', ['A', 'B', 'AB', 'O'])->nullable();
-            $table->unsignedBigInteger('tempat_lahir')->nullable();
+            $table->foreignIdFor(DaerahKotakab::class,'tempat_lahir')->nullable()->constrained();
             $table->date('tanggal_lahir')->nullable();
             $table->string('pendidikan')->nullable();
             $table->string('pekerjaan')->nullable();
             $table->string('alamat_rumah')->nullable();
             $table->string('telp')->nullable();
-            $table->unsignedBigInteger('kia_ibu_id');
+            $table->foreignIdFor(KiaIdentitasIbu::class, 'kia_ibu_id')->constrained();
             $table->timestamps();
-            $table->foreign('tempat_lahir')->references('id')->on('kota');
-            $table->foreign('kia_ibu_id')->references('id')->on('kia_identitas_ibu');
         });
     }
     public function down()

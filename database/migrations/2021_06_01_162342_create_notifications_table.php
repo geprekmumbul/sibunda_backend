@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\NotificationTemplate;
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -16,11 +18,9 @@ class CreateNotificationsTable extends Migration
             $table->dateTime('datetime');
             $table->text('img_url')->nullable();
             $table->text('url')->nullable();
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->unsignedBigInteger('template_id')->nullable();
+            $table->foreignIdFor(User::class, 'user_id')->nullable()->constrained();
+            $table->foreignIdFor(NotificationTemplate::class, 'template_id')->nullable()->constrained();
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('template_id')->references('id')->on('notification_template');
         });
     }
     public function down()
