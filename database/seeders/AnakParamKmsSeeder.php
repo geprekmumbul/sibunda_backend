@@ -11,9 +11,6 @@ class AnakParamKmsSeeder extends Seeder
 {
     public function run()
     {
-        AnakParamKms::query()->truncate();
-        DB::statement('ALTER SEQUENCE anak_param_kms_id_seq RESTART 1');
-
         $data = Reader::createFromPath(database_path('seeders/csv/anak_param_kms.csv'), 'r');
         $data->setDelimiter(',');
         $data->setHeaderOffset(0);

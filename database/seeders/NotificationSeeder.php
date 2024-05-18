@@ -13,9 +13,6 @@ class NotificationSeeder extends Seeder
 {
     public function run()
     {
-        Notification::query()->truncate();
-        DB::statement('ALTER SEQUENCE notifications_id_seq RESTART 1');
-
         $users = User::where('user_group_id', Constants::USER_GROUP_BUNDA)->get();
 
         foreach($users as $user)

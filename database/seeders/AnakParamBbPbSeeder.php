@@ -12,9 +12,6 @@ class AnakParamBbPbSeeder extends Seeder
 {
     public function run()
     {
-        AnakParamBbPb::query()->truncate();
-        DB::statement('ALTER SEQUENCE anak_param_bb_pb_id_seq RESTART 1');
-
         $data = Reader::createFromPath(database_path('seeders/csv/anak_param_bb_pb.csv'), 'r');
         $data->setDelimiter(',');
         $data->setHeaderOffset(0);

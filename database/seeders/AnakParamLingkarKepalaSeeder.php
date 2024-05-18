@@ -11,9 +11,6 @@ class AnakParamLingkarKepalaSeeder extends Seeder
 {
     public function run()
     {
-        AnakParamLingkarKepala::query()->truncate();
-        DB::statement('ALTER SEQUENCE anak_param_lingkar_kepala_id_seq RESTART 1');
-
         $data = Reader::createFromPath(database_path('seeders/csv/anak_param_lingkar_kepala.csv'), 'r');
         $data->setDelimiter(',');
         $data->setHeaderOffset(0);

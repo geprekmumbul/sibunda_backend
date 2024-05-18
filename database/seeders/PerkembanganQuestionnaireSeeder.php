@@ -17,8 +17,6 @@ class PerkembanganQuestionnaireSeeder extends Seeder
 
         PerkembanganQuestionnaire::query()->truncate();
 
-        DB::statement('ALTER SEQUENCE perkembangan_questionnaire_id_seq RESTART 1');
-
         foreach($data as $d) {
             $newData = PerkembanganQuestionnaire::create([
                 'no'          => $d['no'],

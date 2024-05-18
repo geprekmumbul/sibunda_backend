@@ -18,11 +18,6 @@ class UserSeeder extends Seeder
         UserRole::query()->truncate();
         UserGroup::query()->truncate();
 
-        DB::statement('ALTER TABLE users AUTO_INCREMENT=1');
-        DB::statement('ALTER TABLE user_groups_roles AUTO_INCREMENT=1');
-        DB::statement('ALTER TABLE user_groups AUTO_INCREMENT=1');
-        DB::statement('ALTER TABLE user_roles AUTO_INCREMENT=1');
-
         $userGroups = [
             'Admin',
             'Bunda',
