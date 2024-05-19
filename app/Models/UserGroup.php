@@ -9,6 +9,9 @@ class UserGroup extends Model
     //
     public $timestamps = false;
     protected $table = 'user_groups';
+    protected $casts = [
+        'id' => 'integer'
+    ];
     protected $fillable = ['name'];
 
     const TYPE_ADMIN = 1;

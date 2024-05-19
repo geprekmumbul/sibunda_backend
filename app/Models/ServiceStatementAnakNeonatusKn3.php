@@ -9,6 +9,9 @@ class ServiceStatementAnakNeonatusKn3 extends Model
 {
     use HasFactory;
     protected $table = 'service_statement_anak_neonatus_kn3';
+    protected $casts = [
+        'id' => 'integer'
+    ];
     protected $fillable = [
         'q_menyusu',
         'q_tali_pusat',

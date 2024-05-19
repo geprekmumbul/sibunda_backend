@@ -10,6 +10,9 @@ class FetusGrowthParam extends Model
     use HasFactory;
     protected $primaryKey = 'week';
     protected $table = 'fetus_growths';
+    protected $casts = [
+        'week' => 'integer'
+    ];
     protected $fillable = [
         'week',
         'length',

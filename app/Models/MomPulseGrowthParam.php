@@ -10,6 +10,9 @@ class MomPulseGrowthParam extends Model
     use HasFactory;
     protected $primaryKey = 'week';
     protected $table = 'mom_pulse_growths';
+    protected $casts = [
+        'week' => 'integer'
+    ];
     protected $fillable = [
         'week',
         'top_threshold'

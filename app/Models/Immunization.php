@@ -15,5 +15,8 @@ class Immunization extends Model
     const TYPE_ABOVE_4_MONTHS = 2;
 
     protected $table = 'immunization';
+    protected $casts = [
+        'id' => 'integer'
+    ];
     protected $fillable = ['name'];
 }

@@ -8,6 +8,9 @@ class DaerahProvinsi extends Model
 {
     //
     protected $table = 'provinsi';
+    protected $casts = [
+        'id' => 'integer'
+    ];
     protected $fillable = ['nama'];
     public $timestamps = false;
 }

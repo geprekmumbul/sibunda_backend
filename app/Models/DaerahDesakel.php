@@ -8,6 +8,9 @@ class DaerahDesakel extends Model
 {
     //
     protected $table = 'kelurahan';
+    protected $casts = [
+        'id' => 'integer'
+    ];
     protected $fillable = ['nama', 'kecamatan_id'];
     public $timestamps = false;
 

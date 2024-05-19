@@ -10,6 +10,9 @@ class TfuGrowthParam extends Model
     use HasFactory;
     protected $primaryKey = 'week';
     protected $table = 'tfu_growths';
+    protected $casts = [
+        'week' => 'integer'
+    ];
     protected $fillable = [
         'week',
         'bottom_threshold',

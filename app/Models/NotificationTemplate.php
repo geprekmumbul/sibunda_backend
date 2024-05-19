@@ -9,6 +9,9 @@ class NotificationTemplate extends Model
 {
     use HasFactory;
     protected $table = 'notification_template';
+    protected $casts = [
+        'id' => 'integer'
+    ];
     protected $fillable = [
         'title',
         'desc',

@@ -9,6 +9,9 @@ class FamilyHealthTips extends Model
 {
     use HasFactory;
     protected $table = 'family_health_tips';
+    protected $casts = [
+        'id' => 'integer'
+    ];
     protected $fillable = [
         'img_url',
         'desc',

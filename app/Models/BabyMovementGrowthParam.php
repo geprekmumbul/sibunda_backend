@@ -10,6 +10,9 @@ class BabyMovementGrowthParam extends Model
     use HasFactory;
 
     protected $primaryKey = 'week';
+    protected $casts = [
+        'week' => 'integer'
+    ];
     protected $table = 'baby_movement_growths';
     protected $fillable = [
         'week',

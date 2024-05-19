@@ -13,6 +13,9 @@ class ServiceStatementIbuHamilPeriksa extends Model
 {
     use HasFactory, CanSaveFile;
     protected $table = 'service_statement_ibu_hamil_periksa';
+    protected $casts = [
+        'id' => 'integer'
+    ];
     protected $fillable = [
         'week',
         'tanggal_periksa',

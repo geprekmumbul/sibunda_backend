@@ -9,6 +9,9 @@ class ServiceStatementAnakNeonatusSixHours extends Model
 {
     use HasFactory;
     protected $table = 'service_statement_anak_neonatus_six_hours';
+    protected $casts = [
+        'id' => 'integer'
+    ];
     protected $fillable = [
         'bb',
         'tb',

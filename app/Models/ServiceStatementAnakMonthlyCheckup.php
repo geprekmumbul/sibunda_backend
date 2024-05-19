@@ -9,6 +9,9 @@ class ServiceStatementAnakMonthlyCheckup extends Model
 {
     use HasFactory;
     protected $table = 'service_statement_anak_monthly_checkup';
+    protected $casts = [
+        'id' => 'integer'
+    ];
     protected $fillable = [
         'year_id',
         'month',

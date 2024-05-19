@@ -9,6 +9,9 @@ class ServiceStatementAnakYear extends Model
 {
     use HasFactory;
     protected $table = 'service_statement_anak_years';
+    protected $casts = [
+        'id' => 'integer'
+    ];
     protected $fillable = [
         'year',
         'kia_anak_id',

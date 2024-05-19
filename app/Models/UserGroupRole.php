@@ -8,5 +8,8 @@ class UserGroupRole extends Model
 {
     //
     protected $table = 'user_groups_roles';
+    protected $casts = [
+        'id' => 'integer'
+    ];
     protected $fillable = ['user_group_id', 'user_role_id'];
 }

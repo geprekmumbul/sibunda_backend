@@ -9,6 +9,9 @@ class ServiceStatementMonthlyPerkembangan extends Model
 {
     use HasFactory;
     protected $table = 'service_statement_monthly_perkembangan';
+    protected $casts = [
+        'id' => 'integer'
+    ];
     protected $fillable = [
         'monthly_report_id',
         'questionnaire_id',

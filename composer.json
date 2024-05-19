@@ -14,7 +14,8 @@
         "laravel/passport": "^10.1",
         "laravel/tinker": "^2.5",
         "league/csv": "^9.7",
-        "plokko/laravel-firebase": "^0.1.4"
+        "plokko/laravel-firebase": "^0.1.4",
+      "ext-http": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

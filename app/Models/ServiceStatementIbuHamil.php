@@ -9,6 +9,9 @@ class ServiceStatementIbuHamil extends Model
 {
     use HasFactory;
     protected $table = 'service_statement_ibu_hamil';
+    protected $casts = [
+        'id' => 'integer'
+    ];
     protected $fillable = [
         'img_url',
         'trimester',

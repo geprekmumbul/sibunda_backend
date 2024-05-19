@@ -8,6 +8,9 @@ class DaerahKecamatan extends Model
 {
     //
     protected $table = 'kecamatan';
+    protected $casts = [
+        'id' => 'integer'
+    ];
     protected $fillable = ['nama', 'kota_id'];
     public $timestamps = false;
 

@@ -9,6 +9,9 @@ class TipsDanInfo extends Model
 {
     use HasFactory;
     protected $table = 'tips_dan_info';
+    protected $casts = [
+        'id' => 'integer'
+    ];
     protected $fillable = [
         'img_url',
         'desc',

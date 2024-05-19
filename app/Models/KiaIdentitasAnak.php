@@ -13,6 +13,9 @@ class KiaIdentitasAnak extends Model
     use HasFactory, CanSaveFile;
 
     protected $table = 'kia_identitas_anak';
+    protected $casts = [
+        'id' => 'integer'
+    ];
     protected $fillable = [
         'nama',
         'anak_ke',

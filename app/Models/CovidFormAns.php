@@ -9,6 +9,9 @@ class CovidFormAns extends Model
 {
     use HasFactory;
     protected $table = 'covid_form_ans';
+    protected $casts = [
+        'id' => 'integer'
+    ];
     protected $fillable = [
         'q_id',
         'form_id',

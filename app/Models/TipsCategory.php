@@ -9,5 +9,8 @@ class TipsCategory extends Model
 {
     use HasFactory;
     protected $table = 'tips_category';
+    protected $casts = [
+        'id' => 'integer'
+    ];
     protected $fillable = ['name'];
 }

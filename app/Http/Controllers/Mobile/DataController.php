@@ -408,9 +408,9 @@ class DataController extends Controller
     }
 
     // master data
-    public function getKota() {
+    public function getKota(): array
+    {
         $data = DB::select('select id, trim(nama) as nama from kota order by id');
-
         return $data;
     }
 

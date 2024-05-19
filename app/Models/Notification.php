@@ -9,6 +9,9 @@ class Notification extends Model
 {
     use HasFactory;
     protected $table = 'notifications';
+    protected $casts = [
+        'id' => 'integer'
+    ];
     protected $fillable = [
         'is_message',
         'title',

@@ -9,6 +9,9 @@ class PerkembanganQuestionnaire extends Model
 {
     use HasFactory;
     protected $table = 'perkembangan_questionnaire';
+    protected $casts = [
+        'id' => 'integer'
+    ];
     protected $fillable = [
         'no',
         'question',

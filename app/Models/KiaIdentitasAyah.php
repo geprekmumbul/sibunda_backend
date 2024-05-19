@@ -10,6 +10,9 @@ class KiaIdentitasAyah extends Model
     use HasFactory;
 
     protected $table = 'kia_identitas_ayah';
+    protected $casts = [
+        'id' => 'integer'
+    ];
     protected $fillable = [
         'nama',
         'img_url',

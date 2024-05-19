@@ -10,6 +10,9 @@ class WeightGrowthParam extends Model
     use HasFactory;
     protected $primaryKey = 'week';
     protected $table = 'weight_growths';
+    protected $casts = [
+        'week' => 'integer'
+    ];
     protected $fillable = [
         'week',
         'bottom_obesity_threshold',

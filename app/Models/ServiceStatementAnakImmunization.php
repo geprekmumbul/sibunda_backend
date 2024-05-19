@@ -9,6 +9,9 @@ class ServiceStatementAnakImmunization extends Model
 {
     use HasFactory;
     protected $table = 'service_statement_anak_immunization';
+    protected $casts = [
+        'id' => 'integer'
+    ];
     protected $fillable = [
         'immunization_id',
         'date',

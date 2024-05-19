@@ -9,6 +9,9 @@ class AnakParamPbUsia extends Model
 {
     use HasFactory;
     protected $table = 'anak_param_pb_usia';
+    protected $casts = [
+        'id' => 'integer'
+    ];
     protected $fillable = [
         'is_laki',
         'month',

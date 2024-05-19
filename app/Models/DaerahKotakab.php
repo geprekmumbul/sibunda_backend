@@ -8,7 +8,10 @@ class DaerahKotakab extends Model
 {
     //
     protected $table = 'kota';
-    protected $fillable = ['nama', 'longitude', 'latitude', 'provinsi_id'];
+    protected $casts = [
+        'id' => 'integer'
+    ];
+    protected $fillable = ['nama', 'provinsi_id'];
     public $timestamps = false;
 
     public function provinsi() {

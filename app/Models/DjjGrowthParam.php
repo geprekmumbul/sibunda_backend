@@ -9,7 +9,11 @@ class DjjGrowthParam extends Model
 {
     use HasFactory;
     protected $primaryKey = 'week';
+
     protected $table = 'djj_growths';
+    protected $casts = [
+        'week' => 'integer'
+    ];
     protected $fillable = [
         'week',
         'bottom_threshold',

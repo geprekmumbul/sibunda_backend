@@ -10,6 +10,9 @@ class KiaIdentitasIbu extends Model
     use HasFactory;
 
     protected $table = 'kia_identitas_ibu';
+    protected $casts = [
+        'id' => 'integer'
+    ];
     protected $fillable = [
         'nama',
         'img_url',
