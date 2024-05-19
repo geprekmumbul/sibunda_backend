@@ -11,11 +11,13 @@ class CreateServiceStatementAnakYearsTable extends Migration
     {
         Schema::create('service_statement_anak_years', function (Blueprint $table) {
             $table->id();
+            $table->timestamps();
+            $table->bigInteger('kia_anak_id')->unsigned();
+            $table->foreign('kia_anak_id')->references('id')->on('kia_identitas_anak');
+
             $table->unsignedInteger('year')->default(1);
-            $table->foreignIdFor(KiaIdentitasAnak::class, 'kia_anak_id')->constrained();
             $table->text('img_url')->nullable();
             $table->unique(['year', 'kia_anak_id']);
-            $table->timestamps();
         });
     }
     public function down()

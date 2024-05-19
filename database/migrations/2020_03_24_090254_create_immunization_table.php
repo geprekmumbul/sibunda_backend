@@ -10,8 +10,9 @@ class CreateImmunizationTable extends Migration
     {
         Schema::create('immunization', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
             $table->timestamps();
+
+            $table->string('name');
         });
     }
     public function down()

@@ -10,6 +10,8 @@ class CreateAnakParamImtTable extends Migration
     {
         Schema::create('anak_param_imt', function (Blueprint $table) {
             $table->id();
+            $table->timestamps();
+
             $table->boolean('is_laki');
             $table->smallInteger('month');
             $table->double('minus_3_sd');
@@ -19,7 +21,6 @@ class CreateAnakParamImtTable extends Migration
             $table->double('plus_1_sd');
             $table->double('plus_2_sd');
             $table->double('plus_3_sd');
-            $table->timestamps();
         });
     }
     public function down()

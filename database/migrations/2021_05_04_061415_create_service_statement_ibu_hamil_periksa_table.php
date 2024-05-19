@@ -11,7 +11,12 @@ class CreateServiceStatementIbuHamilPeriksaTable extends Migration
     {
         Schema::create('service_statement_ibu_hamil_periksa', function (Blueprint $table) {
             $table->id();
+            $table->timestamps();
+            $table->bigInteger('trimester_id')->unsigned();
+            $table->foreign('trimester_id')->references('id')->on('service_statement_ibu_hamil');
+
             $table->smallInteger('week');
+            $table->unique(['trimester_id', 'week']);
             $table->date('tanggal_periksa');
             $table->string('tempat_periksa')->nullable();
             $table->string('nama_pemeriksa')->nullable();
@@ -34,9 +39,6 @@ class CreateServiceStatementIbuHamilPeriksaTable extends Migration
             $table->string('riwayat_penyakit')->nullable();
             $table->text('catatan_khusus')->nullable();
             $table->text('img_usg')->nullable();
-            $table->foreignIdFor(ServiceStatementIbuHamil::class, 'trisemester_id')->constrained();
-            $table->unique(['trisemester_id', 'week']);
-            $table->timestamps();
         });
     }
     public function down()

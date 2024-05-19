@@ -12,9 +12,11 @@ class CreateUserGroupsRolesTable extends Migration
     {
         Schema::create('user_groups_roles', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(UserGroup::class,'user_group_id')->constrained();
-            $table->foreignIdFor(UserRole::class,'user_role_id')->constrained();
             $table->timestamps();
+            $table->bigInteger('user_group_id')->unsigned();
+            $table->bigInteger('user_role_id')->unsigned();
+            $table->foreign('user_group_id')->references('id')->on('user_groups');
+            $table->foreign('user_role_id')->references('id')->on('user_roles');
         });
     }
     public function down()

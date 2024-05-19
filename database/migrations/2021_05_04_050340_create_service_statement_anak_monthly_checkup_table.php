@@ -12,7 +12,10 @@ class CreateServiceStatementAnakMonthlyCheckupTable extends Migration
         //
         Schema::create('service_statement_anak_monthly_checkup', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(ServiceStatementAnakYear::class, 'year_id')->constrained();
+            $table->timestamps();
+            $table->bigInteger('year_id')->unsigned();
+            $table->foreign('year_id')->references('id')->on('service_statement_anak_years');
+
             $table->unsignedSmallInteger('month');
             $table->date('date');
             $table->string('location');
@@ -23,7 +26,6 @@ class CreateServiceStatementAnakMonthlyCheckupTable extends Migration
             $table->double('lingkar_kepala'); // in cm
             $table->double('imt');
             $table->unique(['year_id', 'month']);
-            $table->timestamps();
         });
     }
     public function down()

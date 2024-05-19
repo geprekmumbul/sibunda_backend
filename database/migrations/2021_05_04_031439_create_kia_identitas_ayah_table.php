@@ -12,6 +12,14 @@ class CreateKiaIdentitasAyahTable extends Migration
     {
         Schema::create('kia_identitas_ayah', function (Blueprint $table) {
             $table->id();
+            $table->timestamps();
+
+
+            $table->bigInteger('kia_ibu_id')->unsigned();
+            $table->foreign('kia_ibu_id')->references('id')->on('kia_identitas_ibu');
+            $table->bigInteger('tempat_lahir')->unsigned()->nullable();
+            $table->foreign('tempat_lahir')->references('id')->on('kota');
+
             $table->string('nama');
             $table->text('img_url')->nullable();
             $table->string('nik');
@@ -20,14 +28,11 @@ class CreateKiaIdentitasAyahTable extends Migration
             $table->string('faskes_tk1')->nullable();
             $table->string('faskes_rujukan')->nullable();
             $table->enum('gol_darah', ['A', 'B', 'AB', 'O'])->nullable();
-            $table->foreignIdFor(DaerahKotakab::class,'tempat_lahir')->nullable()->constrained();
             $table->date('tanggal_lahir')->nullable();
             $table->string('pendidikan')->nullable();
             $table->string('pekerjaan')->nullable();
             $table->string('alamat_rumah')->nullable();
             $table->string('telp')->nullable();
-            $table->foreignIdFor(KiaIdentitasIbu::class, 'kia_ibu_id')->constrained();
-            $table->timestamps();
         });
     }
     public function down()

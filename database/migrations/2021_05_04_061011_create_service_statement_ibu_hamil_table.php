@@ -11,10 +11,14 @@ class CreateServiceStatementIbuHamilTable extends Migration
     {
         Schema::create('service_statement_ibu_hamil', function (Blueprint $table) {
             $table->id();
-            $table->text('img_url')->nullable();
-            $table->unsignedSmallInteger('trisemester');
-            $table->foreignIdFor(KiaIdentitasAnak::class, 'kia_anak_id')->constrained();
             $table->timestamps();
+
+            $table->bigInteger('kia_anak_id')->unsigned();
+            $table->foreign('kia_anak_id')->references('id')->on('kia_identitas_anak');
+
+
+            $table->text('img_url')->nullable();
+            $table->unsignedSmallInteger('trimester');
         });
     }
     public function down()

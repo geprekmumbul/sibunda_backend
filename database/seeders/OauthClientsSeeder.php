@@ -29,15 +29,6 @@ class OauthClientsSeeder extends Seeder
                 '2021-03-27 20:41:30'
             ]
         ];
-
-
-        DB::statement('DELETE FROM oauth_clients');
-
-        foreach($clients as $client) {
-            DB::select('INSERT INTO
-                oauth_clients(name, secret, redirect, personal_access_client, password_client, revoked, created_at, updated_at)
-                VALUES(\''.$client[0].'\',\''.$client[1].'\',\''.$client[2].'\',\''.$client[3].'\',\''.$client[4].'\',\''.$client[5].'\',\''.$client[6].'\',\''.$client[7].'\')');
-        }
     }
 }
 

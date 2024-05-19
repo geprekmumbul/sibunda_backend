@@ -10,12 +10,13 @@ class CreatePerkembanganQuestionnaireTable extends Migration
     {
         Schema::create('perkembangan_questionnaire', function (Blueprint $table) {
             $table->id();
+            $table->timestamps();
+
             $table->unsignedSmallInteger('no');
             $table->text('question');
             $table->string('img_url')->nullable();
             $table->smallInteger('month_start');
             $table->smallInteger('month_until');
-            $table->timestamps();
         });
     }
     public function down()

@@ -30,9 +30,7 @@ class FinalDummySeeder extends Seeder
 
     public function run()
     {
-        $exists = User::where('email', 'gita@gmail.com')->first();
-        if(!empty($exists))
-            $this->truncateUserData($exists->id);
+
         $this->seed_user_data();
         $this->seed_form();
         $this->seed_covid_data();
@@ -57,7 +55,7 @@ class FinalDummySeeder extends Seeder
             'faskes_tk1' => 'Klinik Amanah',
             'faskes_rujukan' => 'RS Utama',
             'gol_darah' => 'B',
-            'tempat_lahir' => 3578,
+            'tempat_lahir' => 1101,
             'tanggal_lahir' => '1990-01-01',
             'pendidikan' => 'S1 Kesehatan Masyarakat',
             'pekerjaan' => 'Ahli K3',
@@ -94,7 +92,7 @@ class FinalDummySeeder extends Seeder
         $anakData->nik = '3571040504020001';
         $anakData->jenis_kelamin = 'L';
         $anakData->gol_darah = 'B';
-        $anakData->tempat_lahir = 3578;
+        $anakData->tempat_lahir = 1101;
         $anakData->tanggal_lahir = '2018-01-01';
         $anakData->no_jkn = '3589292';
         $anakData->tanggal_berlaku_jkn = '2020-01-01';
@@ -155,20 +153,20 @@ class FinalDummySeeder extends Seeder
 
         foreach($data as $d) {
             if($d['week'] >= 1 && $d['week']<= 12) {
-                $trisemester = 1;
+                $trimester = 1;
             } else if($d['week'] >= 13 && $d['week']<= 24) {
-                $trisemester = 2;
+                $trimester = 2;
             } else {
-                $trisemester = 3;
+                $trimester = 3;
             }
 
             if($d['week'] > 35)
                 break;
 
-            $trisemester_id = 1;
-            foreach($anak->trisemesters as $t) {
-                if($trisemester == $t->trisemester) {
-                    $trisemester_id = $t->id;
+            $trimester_id = 1;
+            foreach($anak->trimesters as $t) {
+                if($trimester == $t->trimester) {
+                    $trimester_id = $t->id;
                     break;
                 }
             }
@@ -198,7 +196,7 @@ class FinalDummySeeder extends Seeder
                 $newData->alergi_obat = "-";
                 $newData->riwayat_penyakit = "-";
                 $newData->catatan_khusus = "-";
-                $newData->trisemester_id = $trisemester_id;
+                $newData->trimester_id = $trimester_id;
                 $newData->save();
                 echo 'data found' . PHP_EOL;
             } else {
@@ -265,7 +263,7 @@ class FinalDummySeeder extends Seeder
                             $yesCount --;
                     }
                     ServiceStatementMonthlyPerkembangan::create([
-                        'monthly_report_id' => $newData->id,
+                        'monthly_checkup_id' => $newData->id,
                         'questionnaire_id'  => $q->id,
                         'ans'               => $yes
                     ]);

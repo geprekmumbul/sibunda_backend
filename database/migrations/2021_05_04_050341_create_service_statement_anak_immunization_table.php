@@ -12,14 +12,17 @@ class CreateServiceStatementAnakImmunizationTable extends Migration
     {
         Schema::create('service_statement_anak_immunization', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Immunization::class, 'immunization_id')->constrained();
+            $table->timestamps();
+            $table->bigInteger('immunization_id')->unsigned();
+            $table->foreign('immunization_id')->references('id')->on('immunization');
+            $table->bigInteger('kia_anak_id')->unsigned();
+            $table->foreign('kia_anak_id')->references('id')->on('kia_identitas_anak');
+
             $table->date('date')->nullable();
             $table->string('location')->nullable();
             $table->string('pic')->nullable(); // dokter/bidang/perawat
             $table->string('no_batch')->nullable();
-            $table->foreignIdFor(KiaIdentitasAnak::class, 'kia_anak_id')->constrained();
             $table->unsignedSmallInteger('month_type'); // tipe bulan e.g 0 - 4, 5 ++ bulan
-            $table->timestamps();
         });
     }
     public function down()

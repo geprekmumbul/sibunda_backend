@@ -11,6 +11,10 @@ class CreateServiceStatementBayiBaruLahirTable extends Migration
     {
         Schema::create('service_statement_bayi_baru_lahir', function (Blueprint $table) {
             $table->id();
+            $table->timestamps();
+            $table->bigInteger('kia_anak_id')->unsigned();
+            $table->foreign('kia_anak_id')->references('id')->on('kia_identitas_anak');
+
             $table->string('perawatan_tali_pusat');
             $table->string('imd')->nullable();
             $table->string('vitamin_k1')->nullable();
@@ -20,8 +24,6 @@ class CreateServiceStatementBayiBaruLahirTable extends Migration
             $table->string('kie');
             $table->string('ppia');
             $table->unsignedSmallInteger('period');
-            $table->foreignIdFor(KiaIdentitasAnak::class, 'kia_anak_id')->constrained();
-            $table->timestamps();
         });
     }
     public function down()

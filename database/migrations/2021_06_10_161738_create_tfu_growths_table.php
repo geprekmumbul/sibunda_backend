@@ -10,10 +10,11 @@ class CreateTfuGrowthsTable extends Migration
     {
         Schema::create('tfu_growths', function (Blueprint $table) {
             $table->id('week');
+            $table->timestamps();
+
             $table->double('bottom_threshold');
             $table->double('normal_threshold');
             $table->double('top_threshold');
-            $table->timestamps();
         });
     }
     public function down()

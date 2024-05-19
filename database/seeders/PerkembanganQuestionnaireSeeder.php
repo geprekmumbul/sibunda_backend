@@ -15,8 +15,6 @@ class PerkembanganQuestionnaireSeeder extends Seeder
         $data->setDelimiter(',');
         $data->setHeaderOffset(0);
 
-        PerkembanganQuestionnaire::query()->truncate();
-
         foreach($data as $d) {
             $newData = PerkembanganQuestionnaire::create([
                 'no'          => $d['no'],

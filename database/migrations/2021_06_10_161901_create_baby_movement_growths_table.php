@@ -10,9 +10,10 @@ class CreateBabyMovementGrowthsTable extends Migration
     {
         Schema::create('baby_movement_growths', function (Blueprint $table) {
             $table->id('week');
+            $table->timestamps();
+
             $table->double('top_threshold');
             $table->double('bottom_threshold');
-            $table->timestamps();
         });
     }
     public function down()

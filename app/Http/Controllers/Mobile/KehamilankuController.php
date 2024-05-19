@@ -31,7 +31,7 @@ class KehamilankuController extends Controller
 
     public function getOverview() {
         $kiaIbu = Auth::user()->kia_ibu;
-        $janin = KiaIdentitasAnak::select('id', 'nama', 'anak_ke', 'hpl')->with('trisemesters')
+        $janin = KiaIdentitasAnak::select('id', 'nama', 'anak_ke', 'hpl')->with('trimesters')
                             ->where('kia_ibu_id', $kiaIbu->id)->where('is_janin', true)->get();
         foreach($janin as $j) {
             $j->week = $this->getPregnancyAgeInWeek($j->hpl);
@@ -102,12 +102,12 @@ class KehamilankuController extends Controller
             'alergi_obat' => 'string|required',
             'riwayat_penyakit' => 'string|required',
             'catatan_khusus' => 'string|required',
-            'trisemester_id' => 'integer|required'
+            'trimester_id' => 'integer|required'
         ]);
 
         DB::beginTransaction();
 
-        $checkupServiceStatement = ServiceStatementIbuHamilPeriksa::where('trisemester_id', $request->trisemester_id)
+        $checkupServiceStatement = ServiceStatementIbuHamilPeriksa::where('trimester_id', $request->trimester_id)
                                                                     ->where('week', $request->week)->first();
 
         if(empty($checkupServiceStatement))
@@ -132,7 +132,7 @@ class KehamilankuController extends Controller
         $checkupServiceStatement->alergi_obat = $request->alergi_obat;
         $checkupServiceStatement->riwayat_penyakit = $request->riwayat_penyakit;
         $checkupServiceStatement->catatan_khusus = $request->catatan_khusus;
-        $checkupServiceStatement->trisemester_id = $request->trisemester_id;
+        $checkupServiceStatement->trimester_id = $request->trimester_id;
 
         if(!empty($request->jenis_kelamin))
             $checkupServiceStatement->jenis_kelamin = $request->jenis_kelamin;
@@ -149,17 +149,17 @@ class KehamilankuController extends Controller
         DB::commit();
 
         return Constants::successResponseWithNewValue('data', [
-            'weekly_trisemester_checkup_id' => $checkupServiceStatement->id
+            'weekly_trimester_checkup_id' => $checkupServiceStatement->id
         ]);
     }
 
     public function createUsg(Request $request) {
         $request->validate([
-            'weekly_trisemester_checkup_id' => 'integer|required',
+            'weekly_trimester_checkup_id' => 'integer|required',
             'img_usg' => 'file|required'
         ]);
 
-        $data = ServiceStatementIbuHamilPeriksa::find($request->weekly_trisemester_checkup_id);
+        $data = ServiceStatementIbuHamilPeriksa::find($request->weekly_trimester_checkup_id);
         $data->saveImgUsg($request->img_usg);
 
         return Constants::successResponse();
@@ -167,11 +167,11 @@ class KehamilankuController extends Controller
 
     public function getWeeklyReport(Request $request) {
         $request->validate([
-            'trisemester_id' => 'integer|required',
+            'trimester_id' => 'integer|required',
             'week' => 'integer|required',
         ]);
 
-        $data = ServiceStatementIbuHamilPeriksa::where('trisemester_id', $request->trisemester_id)
+        $data = ServiceStatementIbuHamilPeriksa::where('trimester_id', $request->trimester_id)
                                                 ->where('week', $request->week)->first();
 
         if(empty($data))
@@ -182,13 +182,13 @@ class KehamilankuController extends Controller
 
     public function getWeeklyReportAnalysis(Request $request) {
         $request->validate([
-            'weekly_trisemester_checkup_id' => 'integer|required'
+            'weekly_trimester_checkup_id' => 'integer|required'
         ]);
 
-        $checkupServiceStatement = ServiceStatementIbuHamilPeriksa::find($request->weekly_trisemester_checkup_id);
+        $checkupServiceStatement = ServiceStatementIbuHamilPeriksa::find($request->weekly_trimester_checkup_id);
 
         if(empty($checkupServiceStatement))
-            return Constants::errorResponse('no matching data for weekly_trisemester_checkup_id : ' . $request->weekly_trisemester_checkup_id);
+            return Constants::errorResponse('no matching data for weekly_trimester_checkup_id : ' . $request->weekly_trisemester_checkup_id);
 
         $weightGrowthParam = WeightGrowthParam::where('week', $checkupServiceStatement->week)->first();
         $momPulseGrowthParam = MomPulseGrowthParam::where('week', $checkupServiceStatement->week)->first();
@@ -213,11 +213,11 @@ class KehamilankuController extends Controller
 
     public function confirmBabyBirth(Request $request) {
         $request->validate([
-            'trisemester_id' => 'integer|required'
+            'trimester_id' => 'integer|required'
         ]);
 
-        $trisemester = ServiceStatementIbuHamil::find($request->trisemester_id);
-        $anak = $trisemester->kia_anak;
+        $trimester = ServiceStatementIbuHamil::find($request->trisemester_id);
+        $anak = $trimester->kia_anak;
         $anak->is_lahir = true;
         $anak->save();
 
@@ -227,7 +227,7 @@ class KehamilankuController extends Controller
     public function getImmunizationData() {
         $bunda = Auth::user()->kia_ibu;
         return ServiceStatementIbuImmunization::where('kia_ibu_id', $bunda->id)
-                                                ->orderBy('trisemester')->orderBy('immunization_id')->get();
+                                                ->orderBy('trimester')->orderBy('immunization_id')->get();
     }
 
     public function createImmunizationData(Request $request) {

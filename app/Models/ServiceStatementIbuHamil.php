@@ -11,7 +11,7 @@ class ServiceStatementIbuHamil extends Model
     protected $table = 'service_statement_ibu_hamil';
     protected $fillable = [
         'img_url',
-        'trisemester',
+        'trimester',
         'kia_anak_id'
     ];
 

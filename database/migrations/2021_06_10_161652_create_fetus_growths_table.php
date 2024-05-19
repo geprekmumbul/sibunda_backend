@@ -10,11 +10,12 @@ class CreateFetusGrowthsTable extends Migration
     {
         Schema::create('fetus_growths', function (Blueprint $table) {
             $table->id('week');
+            $table->timestamps();
+
             $table->double('length')->nullable();
             $table->double('weight')->nullable();
             $table->string('desc')->nullable();
             $table->string('img')->nullable();
-            $table->timestamps();
         });
     }
     public function down()

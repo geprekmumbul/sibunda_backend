@@ -75,7 +75,7 @@ trait GlobalDataHelper
 
     public function getHpl($week, $kiaAnakId) {
         return DB::selectOne('select ka.hpl from service_statement_ibu_hamil_periksa c
-            join service_statement_ibu_hamil t on t.id = c.trisemester_id
+            join service_statement_ibu_hamil t on t.id = c.trimester_id
             join kia_identitas_anak ka on ka.id = t.kia_anak_id
             where c.week = ' . $week . ' and ka.id = ' . $kiaAnakId);
     }
@@ -185,7 +185,7 @@ trait GlobalDataHelper
 
     public function getPregnancyData($prop, $kiaAnakId = 1) {
         $q = 'select sp.' . $prop . ', sp.week from service_statement_ibu_hamil_periksa sp
-                join service_statement_ibu_hamil s on s.id = sp.trisemester_id
+                join service_statement_ibu_hamil s on s.id = sp.trimester_id
                 where s.kia_anak_id = ' . $kiaAnakId . ' order by sp.week';
         return DB::select($q);
     }
@@ -268,7 +268,7 @@ trait GlobalDataHelper
 
         foreach($ibu->kia_anak as $anak) {
             if($anak->is_janin) {
-                $formData = ServiceStatementIbuHamilPeriksa::whereHas('trisemester', function($q) use (&$anak) {
+                $formData = ServiceStatementIbuHamilPeriksa::whereHas('trimester', function($q) use (&$anak) {
                     $q->where('kia_anak_id', $anak->id);
                 })->orderBy('created_at', 'desc')->first();
 
@@ -397,8 +397,8 @@ trait GlobalDataHelper
 
             foreach ($anak as $a) {
                 if($a->is_janin) {
-                    foreach ($a->trisemester as $t) {
-                        ServiceStatementIbuHamilPeriksa::where('trisemester_id', $t->id)->delete();
+                    foreach ($a->trimester as $t) {
+                        ServiceStatementIbuHamilPeriksa::where('trimester_id', $t->id)->delete();
                         $t->delete();
                     }
                 } else {

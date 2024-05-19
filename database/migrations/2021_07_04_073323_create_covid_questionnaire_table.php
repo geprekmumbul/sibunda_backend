@@ -10,8 +10,9 @@ class CreateCovidQuestionnaireTable extends Migration
     {
         Schema::create('covid_questionnaire', function (Blueprint $table) {
             $table->id();
-            $table->longText('question');
             $table->timestamps();
+
+            $table->longText('question');
         });
     }
     public function down()

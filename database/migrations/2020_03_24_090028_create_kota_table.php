@@ -11,8 +11,10 @@ class CreateKotaTable extends Migration
     {
         Schema::create('kota', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('provinsi_id')->unsigned();
+            $table->foreign('provinsi_id')->references('id')->on('provinsi');
+
             $table->char('nama', 50);
-            $table->foreignIdFor(DaerahProvinsi::class, 'provinsi_id')->constrained();
         });
     }
     public function down()

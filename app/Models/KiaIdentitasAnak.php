@@ -33,7 +33,7 @@ class KiaIdentitasAnak extends Model
         'is_lahir'
     ];
 
-    public function trisemesters() {
+    public function trimesters() {
         return $this->hasMany(ServiceStatementIbuHamil::class, 'kia_anak_id');
     }
 
@@ -42,18 +42,18 @@ class KiaIdentitasAnak extends Model
     }
 
     public function init_fundamental_data() {
-        $this->init_trisemester_data();
+        $this->init_trimester_data();
         $this->init_years_data();
         $this->init_immunization();
     }
 
     // for janin
-    private function init_trisemester_data() {
+    private function init_trimester_data() {
         for($i = 1; $i <= 3; $i ++)
             ServiceStatementIbuHamil::create([
-                'trisemester' => $i,
+                'trimester' => $i,
                 'kia_anak_id' => $this->id,
-                'img_url' => 'https://sibunda.amirmb.com/res/img/kehamilanku/trisemester_' . $i . '.png'
+                'img_url' => 'https://sibunda.amirmb.com/res/img/kehamilanku/trimester_' . $i . '.png'
             ]);
     }
 

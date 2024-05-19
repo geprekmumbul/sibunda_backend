@@ -10,8 +10,8 @@ class CreateTipsCategoryTable extends Migration
     {
         Schema::create('tips_category', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
             $table->timestamps();
+            $table->string('name');
         });
     }
     public function down()

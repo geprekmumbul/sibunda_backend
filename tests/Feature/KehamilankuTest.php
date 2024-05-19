@@ -47,7 +47,7 @@ class KehamilankuTest extends TestCase
             'alergi_obat' => '-',
             'riwayat_penyakit' => '-',
             'catatan_khusus' => '-',
-            'trisemester_id' => 1
+            'trimester_id' => 1
         ],[
             'Authorization' => 'Bearer ' . Constants::getDummyAccessToken()
         ])->assertSee([
@@ -57,7 +57,7 @@ class KehamilankuTest extends TestCase
 
     public function testGetReport() {
         $this->json('POST', 'api/kehamilanku/show-weekly-report', [
-            'trisemester_id' => 1,
+            'trimester_id' => 1,
             'week' => 1
         ], [
             'Authorization' => 'Bearer ' . Constants::getDummyAccessToken()
@@ -68,7 +68,7 @@ class KehamilankuTest extends TestCase
 
     public function testGetReportAnalysis() {
         $this->json('POST', 'api/kehamilanku/show-weekly-report-analysis',[
-            'weekly_trisemester_checkup_id' =>1
+            'weekly_trimester_checkup_id' =>1
         ], [
             'Authorization' => 'Bearer ' . Constants::getDummyAccessToken()
         ])->assertSee([

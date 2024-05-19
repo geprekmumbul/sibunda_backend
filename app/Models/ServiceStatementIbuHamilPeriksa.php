@@ -35,12 +35,12 @@ class ServiceStatementIbuHamilPeriksa extends Model
         'alergi_obat',
         'riwayat_penyakit',
         'catatan_khusus',
-        'trisemester_id',
+        'trimester_id',
         'img_usg'
     ];
 
-    public function trisemester() {
-        return $this->belongsTo(ServiceStatementIbuHamil::class, 'trisemester_id');
+    public function trimester() {
+        return $this->belongsTo(ServiceStatementIbuHamil::class, 'trimester_id');
     }
 
     public function saveImgUsg($img) {

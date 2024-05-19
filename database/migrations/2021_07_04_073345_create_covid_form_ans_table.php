@@ -12,10 +12,15 @@ class CreateCovidFormAnsTable extends Migration
     {
         Schema::create('covid_form_ans', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(CovidQuestionnaire::class, 'q_id')->constrained();
-            $table->foreignIdFor(CovidForm::class, 'form_id')->constrained();
-            $table->boolean('ans');
             $table->timestamps();
+
+            $table->bigInteger('q_id')->unsigned();
+            $table->bigInteger('form_id')->unsigned();
+            $table->foreign( 'q_id')->references('id')->on('covid_questionnaire');
+            $table->foreign('form_id')->references('id')->on('covid_form');
+
+            $table->boolean('ans');
+
         });
     }
     public function down()

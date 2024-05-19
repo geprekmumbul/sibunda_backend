@@ -14,11 +14,6 @@ class WilayahSeeder extends Seeder
     {
         $basePath = 'seeders/csv/';
 
-        DaerahProvinsi::query()->truncate();
-        DaerahKotakab::query()->truncate();
-        DaerahKecamatan::query()->truncate();
-        DaerahDesakel::query()->truncate();
-
         $this->importDataFromCsv(DaerahProvinsi::class, $basePath.'daerah_provinsi.csv');
         $this->importDataFromCsv(DaerahKotakab::class, $basePath.'daerah_kotakab.csv', 'provinsi_id');
         $this->importDataFromCsv(DaerahKecamatan::class, $basePath.'daerah_kecamatan.csv', 'kota_id');

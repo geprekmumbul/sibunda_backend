@@ -10,12 +10,12 @@ class CreateAnakParamPerkembanganTable extends Migration
     {
         Schema::create('anak_param_perkembangan', function (Blueprint $table) {
             $table->id();
+            $table->timestamps();
 
             $table->boolean('is_laki');
             $table->smallInteger('month');
             $table->smallInteger('s_threshold');
             $table->smallInteger('m_threshold');
-            $table->timestamps();
         });
     }
     public function down()

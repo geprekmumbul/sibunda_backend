@@ -11,8 +11,10 @@ class CreateKelurahanTable extends Migration
     {
         Schema::create('kelurahan', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('kecamatan_id')->unsigned();
+            $table->foreign('kecamatan_id')->references('id')->on('kecamatan');
+
             $table->char('nama', 50);
-            $table->foreignIdFor(DaerahKotakab::class, 'kecamatan_id')->constrained();
         });
     }
     public function down()

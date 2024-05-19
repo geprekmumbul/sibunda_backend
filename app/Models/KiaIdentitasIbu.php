@@ -51,7 +51,7 @@ class KiaIdentitasIbu extends Model
             for($j = 0; $j < 2; $j ++)
                 ServiceStatementIbuImmunization::create([
                     'immunization_id' => Immunization::TETANUS,
-                    'trisemester' => $i,
+                    'trimester' => $i,
                     'kia_ibu_id' => $this->id
                 ]);
         }

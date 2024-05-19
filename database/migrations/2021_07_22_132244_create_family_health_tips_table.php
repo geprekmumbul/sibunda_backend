@@ -11,10 +11,12 @@ class CreateFamilyHealthTipsTable extends Migration
     {
         Schema::create('family_health_tips', function (Blueprint $table) {
             $table->id();
+            $table->timestamps();
+            $table->bigInteger('user_id')->unsigned()->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
+
             $table->text('img_url')->nullable();
             $table->string('desc');
-            $table->foreignIdFor(User::class, 'user_id')->nullable()->constrained();
-            $table->timestamps();
         });
     }
     public function down()

@@ -11,6 +11,17 @@ class CreateServiceStatementAnakNeonatusKn3Table extends Migration
     {
         Schema::create('service_statement_anak_neonatus_kn3', function (Blueprint $table) {
             $table->id();
+            $table->timestamps();
+            $table->bigInteger('monthly_checkup_id')->unsigned()->unique();
+            $table->foreign('monthly_checkup_id')->references('id')->on('service_statement_anak_monthly_checkup');
+
+            $table->date('date'); ///Bisa jadi tidak ada
+            $table->time('time'); ///Bisa jadi tidak ada
+            $table->string('masalah');
+            $table->string('dirujuk_ke');
+            $table->string('petugas');
+            $table->string('catatan_penting');
+
             $table->boolean('q_menyusu')->default(false);
             $table->boolean('q_tali_pusat')->default(false);
             $table->boolean('q_vit_k1')->default(false);
@@ -21,12 +32,6 @@ class CreateServiceStatementAnakNeonatusKn3Table extends Migration
             $table->boolean('q_kuning3')->default(false);
             $table->boolean('q_kuning4')->default(false);
             $table->boolean('q_kuning5')->default(false);
-            $table->string('masalah');
-            $table->string('dirujuk_ke');
-            $table->string('petugas');
-            $table->string('catatan_penting');
-            $table->foreignIdFor(ServiceStatementAnakMonthlyCheckup::class, 'monthly_checkup_id')->unique()->constrained();
-            $table->timestamps();
         });
     }
     public function down()

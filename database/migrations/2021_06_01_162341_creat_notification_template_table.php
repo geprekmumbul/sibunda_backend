@@ -11,11 +11,12 @@ class CreatNotificationTemplateTable extends Migration
         //
         Schema::create('notification_template', function (Blueprint $table) {
             $table->id();
+            $table->timestamps();
+
             $table->string('title');
             $table->string('desc');
             $table->text('img_url')->nullable();
             $table->text('url')->nullable();
-            $table->timestamps();
         });
     }
     public function down()

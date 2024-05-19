@@ -17,13 +17,6 @@ class ParameterSeeder extends Seeder {
     use Util;
 
     public function run() {
-        FetusGrowthParam::query()->truncate();
-        WeightGrowthParam::query()->truncate();
-        TfuGrowthParam::query()->truncate();
-        DjjGrowthParam::query()->truncate();
-        MomPulseGrowthParam::query()->truncate();
-        BabyMovementGrowthParam::query()->truncate();
-        Immunization::query()->truncate();
 
         $fetusGrowths = Reader::createFromPath(database_path('seeders/csv/pertumbuhan_janin.csv'), 'r');
         $fetusGrowths->setDelimiter(',');

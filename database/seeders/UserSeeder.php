@@ -13,11 +13,6 @@ class UserSeeder extends Seeder
 {
     public function run()
     {
-        User::query()->truncate();
-        UserGroupRole::query()->truncate();
-        UserRole::query()->truncate();
-        UserGroup::query()->truncate();
-
         $userGroups = [
             'Admin',
             'Bunda',

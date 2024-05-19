@@ -13,11 +13,15 @@ class CreateServiceStatementMonthlyPerkembanganTable extends Migration
     {
         Schema::create('service_statement_monthly_perkembangan', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(ServiceStatementAnakMonthlyCheckup::class, 'monthly_report_id')->constrained();
-            $table->foreignIdFor(PerkembanganQuestionnaire::class, 'questionnaire_id')->constrained();
-            $table->boolean('ans');
-            $table->unique(['monthly_report_id', 'questionnaire_id']);
             $table->timestamps();
+            $table->bigInteger('monthly_checkup_id')->unsigned();
+            $table->foreign('monthly_checkup_id', 'monthly_checkup_id_foreign2')->references('id')->on('service_statement_anak_monthly_checkup');
+            $table->bigInteger('questionnaire_id')->unsigned();
+            $table->foreign('questionnaire_id', 'questionnaire_id_foreign')->references('id')->on('perkembangan_questionnaire');
+
+            $table->unique(['monthly_checkup_id', 'questionnaire_id'],'monthly_checkup_questionnaire_unique');
+            $table->boolean('ans');
+
         });
     }
     public function down()

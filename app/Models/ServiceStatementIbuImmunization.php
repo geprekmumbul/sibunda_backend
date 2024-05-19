@@ -14,7 +14,7 @@ class ServiceStatementIbuImmunization extends Model
       'date',
       'location',
       'pic',
-      'trisemester',
+      'trimester',
       'kia_ibu_id'
     ];
 }
