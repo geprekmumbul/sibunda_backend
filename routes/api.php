@@ -29,7 +29,7 @@ Route::prefix('auth')->group(function (){
     // without auth
     Route::post('login', [AuthController::class, 'login']);
     Route::post('check-email-availability', [AuthController::class, 'checkEmail']);
-    /*Route::post('register', [AuthController::class, 'register']);*/
+    Route::post('register2', [AuthController::class, 'register']);
     Route::post('register', [DataController::class, 'createBundaUser']);
     // with auth
     Route::middleware('auth:api')->group(function () {

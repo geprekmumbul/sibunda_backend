@@ -26,7 +26,7 @@ class DataController extends Controller
         $userValidation = $request->validate([
             'name' => 'required',
             'email' => 'required|email',
-            'password' => 'required|confirmed'
+            'password' => 'required'
         ]);
         $userValidation['user_group_id'] = Constants::USER_GROUP_BUNDA;
         // validasi data ibu
@@ -411,6 +411,9 @@ class DataController extends Controller
     public function getKota(): array
     {
         $data = DB::select('select id, trim(nama) as nama from kota order by id');
+        for($i = 0; $i < count($data); $i++){
+            $data[$i]->id = (int) $data[$i]->id;
+        }
         return $data;
     }
 

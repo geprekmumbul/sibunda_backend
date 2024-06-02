@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Utils\Constants;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
@@ -21,29 +22,34 @@ class AuthController extends Controller
             'fcm_token' => 'required|string'
         ]);
 
-        $params = [
-            'grant_type' => 'password',
-            'client_id' => $request->client_id,
-            'client_secret' => $request->client_secret,
-            'username' => $request->email,
-            'password' => $request->password,
-            'scope' => '*'
-        ];
-        $nRequest = Request::create('/oauth/token', 'POST', $params);
-        $nRequest->headers->set('Accept', 'application/json');
-        $response = app()->handle($nRequest);
-
-        if($response->getStatusCode() == Constants::RESPONSE_SUCCESS) {
-            $loginResponse = $response->getContent();
-            $user = User::where('email', $request->email)->first();
-            $user->fcm_token = $request->fcm_token;
-            $user->save();
-
+//        $params = [
+//            'grant_type' => 'password',
+//            'client_id' => $request->client_id,
+//            'client_secret' => $request->client_secret,
+//            'username' => $request->email,
+//            'password' => $request->password,
+//            'scope' => '*'
+//        ];
+//        $nRequest = Request::create('/oauth/token', 'POST', $params);
+//        $nRequest->headers->set('Accept', 'application/json');
+//        $response = app()->handle($nRequest);
+//
+//        if($response->getStatusCode() == Constants::RESPONSE_SUCCESS) {
+//            $loginResponse = $response->getContent();
+//            $user = User::where('email', $request->email)->first();
+//            $user->fcm_token = $request->fcm_token;
+//            $user->save();
+//
+//            return Constants::successResponseWithNewValue('data',
+//                json_decode($loginResponse),
+//                'user successfully logged in');
+//        }
+        $user = DB::table('users')->where('email', $request->email)->where('password',  Hash::make($request->password))->first();
+        if(!empty($user)){
             return Constants::successResponseWithNewValue('data',
-                json_decode($loginResponse),
+                'json_decode()',
                 'user successfully logged in');
         }
-
         return Constants::errorResponse();
     }
 
@@ -57,8 +63,8 @@ class AuthController extends Controller
         $this->validate($request, [
             'nama' => 'required|string|between:3,255',
             'email' => 'required|email',
-            'password' => 'required|confirmed',
-            'img' => 'image'
+            'password' => 'required',
+//            'img' => 'image'
         ]);
 
         $user = User::create([
@@ -68,9 +74,9 @@ class AuthController extends Controller
             'user_group_id' => Constants::USER_GROUP_BIDAN
         ]);
 
-        if(!empty($request->img)) {
-            $user->saveImg($request->img);
-        }
+//        if(!empty($request->img)) {
+//            $user->saveImg($request->img);
+//        }
 
         return Constants::successResponseWithNewValue('data', $user, 'user successfully registered');
     }
